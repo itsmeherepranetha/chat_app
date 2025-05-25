@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="message-container"></div>
-    <form id="send-container">
-        <input type="text" id="message-input">
-        <button type="submit" id="send-button">Send message</button>
+    <div id="room-container">
+        <%Object.keys(rooms).forEach(room=>{ %>
+            <div><%= room%></div>
+            <a href="/<%=room%>">Join</a>
+        <% }) %>
+    </div>
+    <form action="/room" method="POST">
+        <input type="text" name="room" required>
+        <button type="submit">Create New Room</button>
     </form>
+    
 
     <!-- includes the io function in script.js -->
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
