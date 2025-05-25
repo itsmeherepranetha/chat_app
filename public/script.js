@@ -13,10 +13,10 @@ const appendMessage=message=>{
     messageContainer.append(messageElement);
 }
 
-if(messageForm)
+if(messageForm) // ensures does not prompt in index.ejs,and does this only when room.ejs is rendered
 {
-    const username=prompt('What is your name?');
-    //while(!username || username.trim()==='')username=prompt('What is your name?')
+    let username=" "
+    while(!username || username.trim()==='')username=prompt('What is your name?')
     appendMessage('You joined')
     socket.emit('new-user',roomName,username);
 

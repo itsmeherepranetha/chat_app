@@ -76,9 +76,4 @@ httpServer.listen(3000,()=>{ // for normal(express) requests
 // app.listen(3000) actually under the hood , creates a http server(http.createServer(app).listen(3000))
 // but here since we are using the websocket server also which is on top of the http server....we cant just write app.listen(3000)
 // we have to create the http server and then attach the express app(http.createServer(app).listen(3000)) , and also attach the websocket by 
-//     const io=new Server(httpServer,{
-//     cors:{
-//         origin:"http://127.0.0.1:5500", // client running here....so connecting backend to the client
-//         methods:["GET","POST"],
-//     }
-// })
+//     const io=new Server(httpServer) , by default frontend is also running on 3000
